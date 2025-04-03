@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Them Fly Foundation Uganda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #2c8a4f;
+            --secondary-color: #f8b400;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --white: #fff;
+            --black: #000;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1f6a3a;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: #e0a800;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+         
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+         
+        .logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo-text span {
+            color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('hero-bg.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 30px;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Programs Section */
+        .programs {
+            background-color: var(--white);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .program-card {
+            background: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .program-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .program-info {
+            padding: 20px;
+        }
+
+        .program-info h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--light-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 250px;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Donate Section */
+        .donate {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .donate .section-title::after {
+            background: var(--secondary-color);
+        }
+
+        .donate-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .donation-option {
+            background: var(--light-color);
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .donation-option:hover {
+            background: var(--secondary-color);
+        }
+
+        .donation-option.active {
+            background: var(--secondary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-card {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: all 0.5s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .donation-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="C:\Users\Elitebook 845 G7\Desktop/logo.png" alt="Help Them Fly Foundation Logo">
+                <div class="logo-text">Help Them <span>Fly</span></div>
+            </div>
+            <nav>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#donate">Donate</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Empowering African Communities</h1>
+            <p>We provide clean water, education support, and food sustenance to underprivileged communities in Uganda and across Africa.</p>
+            <a href="#donate" class="btn btn-secondary">Donate Now</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <h2 class="section-title">About Our Foundation</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Help Them Fly Foundation Uganda is a non-profit organization dedicated to improving the lives of underprivileged communities across Africa. Founded in 2015, we have been working tirelessly to provide essential needs to those who need them most.</p>
+                    <p>Our mission is to create sustainable solutions that empower communities to break the cycle of poverty. We believe that access to clean water, quality education, and adequate food are fundamental human rights that everyone deserves.</p>
+                    <p>With your support, we've impacted over 50,000 lives across 20 communities in Uganda, providing clean water sources, educational materials, and food supplies to families in need.</p>
+                </div>
+                <div class="about-image">
+                    <img src="C:\Users\Elitebook 845 G7\Desktop\suubi\5 12 24\KASEKERE VILLAGE WELL/DSC_4891.JPG" alt="Community well project">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs section-padding" id="programs">
+        <div class="container">
+            <h2 class="section-title">Our Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <img src="C:\Users\Elitebook 845 G7\Desktop\suubi\5 12 24\KIJJANGOBYA VILLAGE WELL/DSC_5037.JPG" alt="Clean Water Program">
+                    <div class="program-info">
+                        <h3>Clean Water Initiative</h3>
+                        <p>We drill and maintain boreholes to provide clean, safe drinking water to communities that previously relied on contaminated sources.</p>
+                        <a href="#donate" class="btn">Support This Program</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <img src="C:\Users\Elitebook 845 G7\Desktop\suubi\grd\print\now\Instapost\W4/1.JPG" alt="Education Support Program">
+                    <div class="program-info">
+                        <h3>Education Support</h3>
+                        <p>We provide school fees, uniforms, books and build classrooms to ensure children have access to quality education.</p>
+                        <a href="#donate" class="btn">Support This Program</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <img src="C:\Users\Elitebook 845 G7\Desktop/foodsup.jpg" alt="Food Sustenance Program">
+                    <div class="program-info">
+                        <h3>Food Sustenance</h3>
+                        <p>We distribute food supplies and support agricultural projects to combat hunger and malnutrition in vulnerable communities.</p>
+                        <a href="#donate" class="btn">Support This Program</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery section-padding" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Work in Action</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="C:\Users\Elitebook 845 G7\Desktop\suubi\5 12 24\KASEKERE VILLAGE WELL/DSC_4915.JPG" alt="Community well project">
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\Elitebook 845 G7\Desktop\suubi\2025\buyala/prlct.JPG" alt="Children at water source">
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\Elitebook 845 G7\Desktop\suubi\grd\print\now\Instapost\W4/5.JPG" alt="School children">
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery-4.jpg" alt="Food distribution">
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery-5.jpg" alt="Community meeting">
+                </div>
+                <div class="gallery-item">
+                    <img src="C:\Users\Elitebook 845 G7\Desktop\suubi\5 12 24\KIJJANGOBYA VILLAGE WELL/DSC_5058.JPG" alt="Happy beneficiaries">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section class="donate section-padding" id="donate">
+        <div class="container">
+            <h2 class="section-title">Make a Difference</h2>
+            <div class="donate-form">
+                <h3>Donation Form</h3>
+                <p>Your support helps us continue our vital work in African communities. Please fill out the form below.</p>
+                
+                <form id="donationForm">
+                    <div class="form-group">
+                        <label>Choose Your Donation Purpose</label>
+                        <div class="donation-options">
+                            <div class="donation-option" data-value="water">
+                                <i class="fas fa-tint"></i>
+                                <p>Clean Water</p>
+                            </div>
+                            <div class="donation-option" data-value="education">
+                                <i class="fas fa-book"></i>
+                                <p>Education</p>
+                            </div>
+                            <div class="donation-option" data-value="food">
+                                <i class="fas fa-utensils"></i>
+                                <p>Food Support</p>
+                            </div>
+                        </div>
+                        <input type="hidden" id="donationPurpose" name="donationPurpose" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount">Donation Amount (USD)</label>
+                        <input type="number" id="amount" name="amount" min="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message (Optional)</label>
+                        <textarea id="message" name="message" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-secondary" style="width: 100%;">Proceed to Donate</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+256 709 838 398</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>shrifmails@gmail.com</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Address</h3>
+                    <p>Kampala, Uganda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>Help Them Fly Foundation Uganda is committed to transforming lives through clean water, education, and food support programs.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#donate">Donate</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Programs</h3>
+                    <ul>
+                        <li><a href="#">Clean Water Projects</a></li>
+                        <li><a href="#">Education Support</a></li>
+                        <li><a href="#">Food Sustenance</a></li>
+                        <li><a href="#">Community Development</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Help Them Fly Foundation Uganda. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Donation purpose selection
+        const donationOptions = document.querySelectorAll('.donation-option');
+        const donationPurposeInput = document.getElementById('donationPurpose');
+
+        donationOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove active class from all options
+                donationOptions.forEach(opt => opt.classList.remove('active'));
+                // Add active class to clicked option
+                option.classList.add('active');
+                // Set the hidden input value
+                donationPurposeInput.value = option.dataset.value;
+            });
+        });
+
+        // Form submission
+        const donationForm = document.getElementById('donationForm');
+
+        donationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const purpose = donationPurposeInput.value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const amount = document.getElementById('amount').value;
+            const message = document.getElementById('message').value;
+            
+            // Validate donation purpose is selected
+            if (!purpose) {
+                alert('Please select a donation purpose');
+                return;
+            }
+            
+            // Here you would typically send this data to your server
+            // For demonstration, we'll just show an alert and log the data
+            alert(`Thank you, ${name}, for your donation of $${amount} for ${purpose} support! We'll contact you shortly at ${email}.`);
+            
+            console.log({
+                purpose,
+                name,
+                email,
+                phone,
+                amount,
+                message
+            });
+            
+            // In a real implementation, you would send this data to your server
+            // which would then email you at shrifmails@gmail.com
+            // For example:
+            /*
+            fetch('/api/donate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    purpose,
+                    name,
+                    email,
+                    phone,
+                    amount,
+                    message,
+                    recipientEmail: 'shrifmails@gmail.com'
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Thank you for your donation!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('There was an error processing your donation. Please try again.');
+            });
+            */
+            
+            // Reset form
+            donationForm.reset();
+            donationOptions.forEach(opt => opt.classList.remove('active'));
+            donationPurposeInput.value = '';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+## Logo Design Concept
+
+Since I can't directly create a file for you, here's a description of a logo you can create:
+
+1. **Concept**: A stylized bird (symbolizing flight/hope) with water droplets, a book, and wheat stalks incorporated into its wings (representing your three focus areas).
+
+2. **Colors**: 
+   - Primary: Green (#2c8a4f) for growth and nature
+   - Secondary: Gold (#f8b400) for hope and value
+
+3. **Text**: "Help Them Fly" with "Foundation Uganda" in smaller text below.
+
+4. **Font**: Bold, modern sans-serif font for the main text.
+
+You can create this using free tools like Canva or hire a designer on platforms like Fiverr to bring this concept to life.
+
+## Implementation Notes
+
+1. **Images**: Replace the placeholder image paths with your actual images from:
+   <image src="C:\Users\Elitebook 845 G7\Desktop\suubi\5 12 24\KIJJANGOBYA VILLAGE WELL/DSC_5068.JPG">
+   - Add more images for the gallery and programs sections
+
+2. **Form Processing**: The form currently just shows an alert. To actually send notifications to your email (shrifmails@gmail.com), you'll need to:
+   - Set up a backend service (PHP, Node.js, etc.)
+   - Or use a form service like FormSubmit (https://formsubmit.co/) which can forward form submissions to your email
+
+3. **Donation Processing**: For actual payment processing, you'll need to integrate with a payment gateway like PayPal, Stripe, or local Ugandan payment processors.
+
+4. **Hosting**: You can host this website on:
+   - GitHub Pages (free)
+   - Netlify (free for basic sites)
+   - Traditional web hosting services
+
+This responsive design will work well on both desktop and mobile devices, with a clean, modern look that's similar to top foundation websites. The color scheme is professional yet warm, emphasizing your foundation's mission.
