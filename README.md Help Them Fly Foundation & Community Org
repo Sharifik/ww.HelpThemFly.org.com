@@ -1,0 +1,1 @@
+This is a non govenment project in uganda whic provides communities access to clean water,education and health care throygh help got from you who fell touched ans decide to surpport the programe no beacuse you hahe much but just beacuse you want to make a change by supporting the programe thank you so much may God bless you
